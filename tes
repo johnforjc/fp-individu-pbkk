@@ -1,0 +1,53 @@
+Insert Into Meja(kapasitas, harga)
+VALUES
+(4, 100000),
+(8, 200000),
+(4, 100000),
+(6, 175000)
+
+SELECT * FROM Pemesanan
+
+DELeTE FROM Pemesanan WHERE id = 14
+
+INSERT INTO Pemesanan
+(id_user, id_meja, tanggal_pemesanan, waktu_reservasi, waktu_selesai, biaya, lunas, bukti_pembayaran)
+VALUES
+(2,2,'2020-04-23 13:00', '2020-04-27 13:00','2020-04-27 15:00', 100000, 0,'/public/img/no_image.jpg')
+
+DROP TABLE Pemesanan
+
+CREATE TABLE Pemesanan(
+    id int NOT NULL PRIMARY KEY IDENTITY(1,1),
+    id_user int NOT NULL,
+    id_meja int NOT NULL,
+    tanggal_pemesanan DATETIME NOT NULL,
+    waktu_reservasi DATETIME NOT NULL,
+    waktu_selesai DATETIME NOT NULL,
+    biaya INT NOT NULL,
+    lunas TINYINT NOT NULL,
+    bukti_pembayaran VARCHAR(50) NOT NULL,
+
+    CONSTRAINT FK_Pemesanan_Users FOREIGN KEY (id_user) REFERENCES Users(id),
+    CONSTRAINT FK_Pemesanan_Meja FOREIGN KEY (id_meja) REFERENCES Meja(id),
+)
+
+SELECT DATEADD(hour, Pemesanan.durasi, Pemesanan.waktu_reservasi) AS jumlah
+FROM Pemesanan
+
+CREATE FUNCTION dbo.getfinished(@Waktu DATETIME, @Durasi INT)
+RETURNS DATETIME AS
+BEGIN
+    RETURN DATEADD(hh, @Durasi, @Waktu);
+END;
+
+SELECT  getfinished('2017-04-13 15:31:43', 2);
+
+
+
+
+SELECT * FROM Meja 
+WHERE id NOT IN
+( SELECT id_meja 
+FROM Pemesanan 
+WHERE 
+ '2020-04-27 12:00:00' BETWEEN waktu_reservasi AND DATEADD(hh, durasi, waktu_reservasi) OR DATEADD(hh,2, '2020-04-27 12:00') BETWEEN waktu_reservasi AND DATEADD(hh, durasi, waktu_reservasi) )
