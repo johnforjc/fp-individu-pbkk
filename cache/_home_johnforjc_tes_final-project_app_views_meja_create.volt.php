@@ -1,9 +1,9 @@
-a:5:{i:0;s:153:"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>";s:9:"pageTitle";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:29:"Backoffice - Learning Phalcon";s:4:"file";s:62:"/home/johnforjc/tes/final-project/app/views/layouts/index.volt";s:4:"line";i:6;}}i:1;s:3072:"</title>
+    <title>Backoffice - Learning Phalcon</title>
     <script src="https://kit.fontawesome.com/420910a352.js" crossorigin="anonymous"></script>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -48,8 +48,24 @@ a:5:{i:0;s:153:"<!DOCTYPE html>
             <?php } ?>
         </div>
     </nav>
-    ";s:4:"body";a:1:{i:0;a:4:{s:4:"type";i:357;s:5:"value";s:5:"
-    ";s:4:"file";s:62:"/home/johnforjc/tes/final-project/app/views/layouts/index.volt";s:4:"line";i:53;}}i:2;s:17:"
+    
+
+<div class="container text-white">
+    <h2>Tambah meja untuk reservasi</h2>
+    <form action="/meja/save" method="post">
+        <div class="form-group">
+            <label for="kapasitas">Kapasitas:</label>
+            <input type="number" class="form-control" id="kapasitas" placeholder="Masukkan kapasitas" name="kapasitas">
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga:</label>
+            <input type="number" class="form-control" id="harga" placeholder="Masukkan harga reservasi setiap satu jam" name="harga">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
 
 </body>
-</html>";}
+</html>

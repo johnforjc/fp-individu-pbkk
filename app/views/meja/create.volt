@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<div class="container">
+<div class="container text-white">
     <h2>Tambah meja untuk reservasi</h2>
     <form action="/meja/save" method="post">
         <div class="form-group">

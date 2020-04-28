@@ -3,18 +3,18 @@
 {% block body %}
 
     <form id="login-form" class="form" action="/pemesanan/list" method="post">
-        <h3 class="text-center text-info">Reservasi</h3>
+        <h3 class="text-center text-white">Reservasi</h3>
         <div class="form-group">
-            <label for="date" class="text-info col-md-2">Tanggal Reservasi:</label>
+            <label for="date" class="text-white col-md-2">Tanggal Reservasi:</label>
             <input type="date" name="date" id="datepicker" class="col-md-6" value={{date}}>
         </div>
         <div class="form-group">
-            <label for="waktu" class="text-info col-md-2">Waktu Reservasi:</label>
+            <label for="waktu" class="text-white col-md-2">Waktu Reservasi:</label>
             <input type="time" name="waktu" id="waktu" class="col-md-6" value={{waktu}}>
-            <small>Use AM PM</small>
+            <small class="text-white">Use AM PM</small>
         </div>
         <div class="form-group">
-            <label for="durasi" class="text-info col-md-2">Durasi:</label>
+            <label for="durasi" class="text-white col-md-2">Durasi:</label>
             <input type="number" name="durasi" id="durasi" class="col-md-6" value={{durasi}}>
         </div>
         <div class="form-group justify-content-center align-items-center">
